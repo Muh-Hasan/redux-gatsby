@@ -5,15 +5,19 @@ import { connect } from "react-redux"
 import { createStructuredSelector } from "reselect"
 import { selectProviderSections } from "../../redux/provider/provider.selectors"
 
-const ProviderGallery = ({ sections }) => (
+const ProviderGallery = ({ sections }) => {
+  console.log(sections);
+  return (
   <div>
     <div className="row gallery-row">
-      {sections.map(({ id, ...otherSectionProps }) => (
+      {sections?.map(({ id, ...otherSectionProps }) => (
         <ProviderThumbnail key={id} {...otherSectionProps} />
       ))}
     </div>
   </div>
-)
+
+  )
+}
 
 const mapStateToProps = createStructuredSelector({
   sections: selectProviderSections,
