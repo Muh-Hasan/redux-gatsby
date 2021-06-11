@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { selectArticle } from "../redux/article/article.selector";
 import "./articles.styles.scss";
 import { Helmet } from "react-helmet";
-
-const ArticlePage = ({ match, article }) => {
+import Layout from '../components/layout'
+const ArticlePage = ({  article }) => {
   return (
-    <>
+    <Layout>
       <Helmet>
         <title>{article.title} | USONV</title>
       </Helmet>
@@ -24,12 +24,12 @@ const ArticlePage = ({ match, article }) => {
           </div>
         </div>
       </article>
-    </>
+    </Layout>
   );
 };
 
 const mapToStateProps = (state, ownProps) => ({
-  article: selectArticle(ownProps.match.params.articleId)(state),
+  article: selectArticle(ownProps.articleId)(state),
 });
 
 export default connect(mapToStateProps)(ArticlePage);
