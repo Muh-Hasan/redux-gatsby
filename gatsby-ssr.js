@@ -1,0 +1,5 @@
+import './src/main.styles.scss'
+import './src/App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+// import './src/main'
+export { wrapRootElement } from './src/wrapper/redux'

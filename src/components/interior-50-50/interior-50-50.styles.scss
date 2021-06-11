@@ -1,0 +1,51 @@
+$main-color: #316bbe;
+
+.reverse-row {
+  flex-direction: row-reverse;
+}
+
+.interior-row {
+  max-width:1350px;
+
+  .vertically-center {
+    display: flex;
+  }
+}
+
+.interior-row-container {
+  margin: auto;
+}
+
+section {
+  max-width: 80%;
+  margin: auto;
+
+
+  .right-column {
+    margin-top: 50px;
+  }
+
+  .left-column {
+    margin-top: 50px;
+  }
+
+  .left-column-content {
+    padding: 30px;
+  }
+
+  .right-column-content {
+    padding: 30px;
+  }
+
+  .img-fluid{
+    height: 300px;
+  }
+}
+
+.dash:after {
+  background-color:$main-color;
+}
+
+.interior-row img {
+  object-fit: cover;
+}
