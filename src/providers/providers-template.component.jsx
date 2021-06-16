@@ -1,11 +1,13 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { connect } from "react-redux"
+import { useSelector } from "react-redux"
 import { selectIndividualProvider } from "../redux/provider/provider.selectors"
 import Layout from "../components/layout"
 import "../styles/providers-template.styles.scss"
 
-const ProviderTemplatePage = ({ provider }) => {
+const ProviderTemplatePage = ({ providerId }) => {
+  const provider = useSelector(selectIndividualProvider(providerId))
+
   return (
     <Layout>
       <main>
@@ -102,8 +104,4 @@ const ProviderTemplatePage = ({ provider }) => {
   )
 }
 
-const mapToStateProps = (state, ownProps) => ({
-  provider: selectIndividualProvider(ownProps?.providerId)(state),
-})
-
-export default connect(mapToStateProps)(ProviderTemplatePage)
+export default ProviderTemplatePage

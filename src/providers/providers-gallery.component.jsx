@@ -6,6 +6,7 @@ import "../styles/providers-gallery.styles.scss"
 import heroImage from "../img/providers-header.png"
 const pageTitle = "Providers"
 const ProvidersPage = (props) => {
+ 
   return (
     <main>
       <Helmet>

@@ -1,26 +1,21 @@
 import React from "react"
 import ProviderThumbnail from "./provider-thumbnail/provider-thumbnail.component"
 import "./provider-gallery.styles.scss"
-import { connect } from "react-redux"
-import { createStructuredSelector } from "reselect"
+import { useSelector } from "react-redux"
 import { selectProviderSections } from "../../redux/provider/provider.selectors"
 
-const ProviderGallery = ({ sections }) => {
-  console.log(sections);
-  return (
-  <div>
-    <div className="row gallery-row">
-      {sections?.map(({ id, ...otherSectionProps }) => (
-        <ProviderThumbnail key={id} {...otherSectionProps} />
-      ))}
-    </div>
-  </div>
+const ProviderGallery = () => {
+  const sections = useSelector(selectProviderSections)
 
+  return (
+    <div>
+      <div className="row gallery-row">
+        {sections?.map(({ id, ...otherSectionProps }) => (
+          <ProviderThumbnail key={id} {...otherSectionProps} />
+        ))}
+      </div>
+    </div>
   )
 }
 
-const mapStateToProps = createStructuredSelector({
-  sections: selectProviderSections,
-})
-
-export default connect(mapStateToProps)(ProviderGallery)
+export default ProviderGallery
