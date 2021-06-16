@@ -1,3 +1,4 @@
+const path = require("path")
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
   if (page.path.match(/^\/providers/)) {
@@ -6,12 +7,15 @@ exports.onCreatePage = async ({ page, actions }) => {
   }
   if (page.path.match(/^\/articles/)) {
     page.matchPath = "/articles/*"
-    createPage(page)
+    createPage({
+      path: "/articles",
+      matchPath: "/articles/*",
+      component: path.resolve('./src/providers/providers-template.component.jsx')
+    })
   }
 }
 
 
-// const path = require("path")
 // const data = require('./src/data/provider.data.js')
 
 // exports.createPages = async ({ graphql, actions }) => {
